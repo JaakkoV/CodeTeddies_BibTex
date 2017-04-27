@@ -4,6 +4,7 @@ import domain.Reference;
 import domain.Article;
 import domain.Book;
 import domain.Inproceedings;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Set;
 
@@ -37,7 +38,16 @@ public class Wrapper {
             bib += n;
         } 
         bib += "}";
-
+        bib = scandic(bib);
         return bib;
-    } 
+    }
+    
+    
+    public String scandic(String line) {
+        String ret = line;
+        if (line.contains("ä")) {
+            ret = line.replaceAll("ä", "{\\a}");
+        }
+        return ret;
+    }
 }
