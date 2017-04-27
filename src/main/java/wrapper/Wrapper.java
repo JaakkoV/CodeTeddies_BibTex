@@ -46,7 +46,7 @@ public class Wrapper {
     public String scandic(String line) {
         String ret = line;
         if (line.contains("ä")) {
-            ret = line.replaceAll("ä", "{\\a}");
+            ret = line.replaceAll("ä", "{\\\"a}");
         }
         return ret;
     }
